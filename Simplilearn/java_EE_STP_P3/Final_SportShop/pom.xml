@@ -1,0 +1,125 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>p1</groupId>
+  <artifactId>Final_SportShop</artifactId>
+  <packaging>war</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>Final_SportShop Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    
+	    <!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
+	<dependency>
+	    <groupId>javax.servlet</groupId>
+	    <artifactId>jstl</artifactId>
+	    <version>1.2</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/javax.servlet/jsp-api -->
+	<dependency>
+	    <groupId>javax.servlet</groupId>
+	    <artifactId>jsp-api</artifactId>
+	    <version>2.0</version>
+	    <scope>provided</scope>
+	</dependency>
+	
+		<!-- https://mvnrepository.com/artifact/javax.persistence/javax.persistence-api -->
+	<dependency>
+	    <groupId>javax.persistence</groupId>
+	    <artifactId>javax.persistence-api</artifactId>
+	    <version>2.2</version>
+	</dependency>
+	
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+	<dependency>
+	    <groupId>org.hibernate</groupId>
+	    <artifactId>hibernate-core</artifactId>
+	    <version>5.5.7.Final</version>
+	</dependency>
+	
+	    <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+	<dependency>
+	    <groupId>mysql</groupId>
+	    <artifactId>mysql-connector-java</artifactId>
+	    <version>8.0.26</version>
+	</dependency>
+	
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-context</artifactId>
+	    <version>5.3.9</version>
+	</dependency>
+	
+	    <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-webmvc</artifactId>
+	    <version>5.3.9</version>
+	</dependency>
+    
+	    <!-- https://mvnrepository.com/artifact/org.springframework/spring-beans -->
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-beans</artifactId>
+	    <version>5.3.9</version>
+	</dependency>
+	
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-aop -->
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-aop</artifactId>
+	    <version>5.3.9</version>
+	</dependency>
+	
+		<!-- https://mvnrepository.com/artifact/aopalliance/aopalliance -->
+	<dependency>
+	    <groupId>aopalliance</groupId>
+	    <artifactId>aopalliance</artifactId>
+	    <version>1.0</version>
+	</dependency>
+	
+		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-aop -->
+	<dependency>
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-starter-aop</artifactId>
+	    <version>2.5.4</version>
+	</dependency>
+	
+		<!-- https://mvnrepository.com/artifact/org.glassfish.jersey.containers/jersey-container-servlet-core -->
+	<dependency>
+	    <groupId>org.glassfish.jersey.containers</groupId>
+	    <artifactId>jersey-container-servlet-core</artifactId>
+	    <version>3.0.3</version>
+	</dependency>
+    
+    <dependency>
+	    <groupId>commons-io</groupId>
+	    <artifactId>commons-io</artifactId>
+	    <version>2.6</version>
+	</dependency>
+    
+		<dependency>
+	    <groupId>javax.validation</groupId>
+	    <artifactId>validation-api</artifactId>
+	    <version>1.0.0.GA</version>
+	</dependency>
+	 
+	<dependency>
+	    <groupId>org.hibernate</groupId>
+	    <artifactId>hibernate-validator</artifactId>
+	    <version>4.3.1.Final</version>
+	</dependency>
+    
+  </dependencies>
+  <build>
+    <finalName>Final_SportShop</finalName>
+  </build>
+</project>

@@ -1,0 +1,284 @@
+<%@page import="java.util.List"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Add/List Classes</title>
+    <link rel="stylesheet" href="css.css">
+    <link rel="stylesheet" href="DBcss.css">
+    	<style type="text/css">
+		body{
+    background-color: #540B0E;
+}
+
+.mnueOptions:hover, .mnueOptions:active {
+  background-color: #14868E;
+  color: #EDDDD4;
+  }
+
+button.mnueOptions{
+        background-color: #197278;
+        color: #EDDDD4;
+
+        padding: 7px 1px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+
+        cursor: pointer;
+        font-family: Segoe UI;
+        font-size: 20px;
+
+        margin: 0.4% 30% 0.4% 30%;
+
+        width: 17em;
+}
+
+input[type=text],input[type=password],input[type=number],input[type=email]{
+  width: 200px;
+  padding: 3px 10px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  font-family: Segoe UI;
+  font-size: 15px;
+  
+}
+select{
+  width: 200px;
+  padding: 3px 10px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  font-family: Segoe UI;
+  font-size: 15px;
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+  background-color: #197278;
+  border: none;
+  color: #EDDDD4;
+  padding: 3px 30px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  font-family: Segoe UI;
+  font-size: 20px;
+  
+}
+.formSpan{
+  display: inline-block;
+  text-align:   left;
+  color: #EDDDD4;
+  font-family: Segoe UI;
+  font-size: 20px;
+  padding: 2px 10px;
+  
+  padding-bottom: 20px;
+}
+
+h1.pageName{
+text-align: center; color: #EDDDD4;
+font-family: Segoe UI;
+font-size: 40px;
+
+}
+hr#topHederLine{
+  margin-top: -30px;
+  margin-left: 20%;
+  margin-right: 20%;
+  border: 1px solid #EDDDD4;
+  border-radius: 10px;
+}
+#myinfo{
+text-align: left; 
+color: #EDDDD4;
+font-family: Segoe UI;
+font-size: 20px;
+
+}
+
+footer{
+  text-align: center;
+  clear: both;
+  position: relative;
+  
+  margin-top: -0px;
+  padding-top: 10%;
+
+  font-size: 20px;
+  color: #EDDDD4;
+}
+		
+		table {
+    border-collapse: collapse;
+    width: 50%;
+    font-size:20px;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 8px;
+    background-color: #ecc9c9;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f06e6e;
+}
+
+h2{
+    font-size: 40px;
+    color: rgb(255, 232, 232);
+}
+
+	
+	.navDiv{
+    background-color: rgb(66, 2, 2);
+    /* background-color: rgb(241, 192, 192); */
+    min-height: 8vw;
+    /* width: fit-content; */
+    border: 1px solid #EDDDD4;
+    border-radius:11px;
+    border-width: 2px;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+.navlogoDiv{
+    /* background-color:blueviolet; */
+    width: 48%;
+    height: 100px;
+    /* width: fit-content; */
+    float: left;
+}
+
+.navP{
+    font-size:6vw;
+    color:#EDDDD4;
+}
+.navButtonsDiv{
+    /* background-color:rgb(88, 8, 163); */
+    width: 48%;
+    height: 100px;    
+    float: right;
+    margin-right: 2%;
+    display: inline-block;
+    padding-right: 1%;
+    
+}
+.navspanBut{    
+    /* background-color:rgb(148, 148, 148); */
+    float: right;
+    margin-right: 2%;
+    margin-top: 4vw;
+}
+	
+		
+	</style>
+</head>
+<body>
+
+	
+ 	  	<div class="navDiv">
+		<div class="navlogoDiv">
+			<label class="navP">Lerners Academy</label>
+		</div>
+		<div class="navButtonsDiv">
+			<span class="navspanBut">
+				<button class="mnueOptions" style="width: 8vw;" onclick="window.location.href='Login.jsp'" style="width: 8em;">Logout</button>
+			</span>
+			<span class="navspanBut">
+				<button class="mnueOptions" style="width: 8vw;" onclick="window.location.href='UsersAbout'" style="width: 8em;">About</button>
+			</span>
+			<span class="navspanBut">
+				<button class="mnueOptions" style="width: 8vw;" onclick="window.location.href='MainPage'" style="width: 8em;">Home</button>
+			</span>
+		</div>
+	</div>
+	
+ 	 	<div style="text-align: center;">
+        <h1 class="pageName">List/Add Classes</h1>
+        <br/>
+        <hr id="topHederLine">
+    
+	
+	 <form action="ClassSave" >
+	  	<span class="formSpan" style="margin-top:2%">
+				 Subject:<br/>
+					<select id="Class" name="subject_name" required="required">
+							<%
+							if(request.getAttribute("SubjectsList") != null ) {
+								List<Object[]> p=(List<Object[]>)request.getAttribute("SubjectsList");
+								for(Object[] o : p){
+									%>
+									<option value=<%=o[0]%>><%=o[1]%></option>
+									<%		
+								}
+							}
+							%>
+					 </select>
+				 <br/>
+				 Room Number:<br/>
+					 <select id="Class" name="room_no" required="required">
+						   	<option value="01">01</option>
+						 	<option value="02">02</option>
+						    <option value="03">03</option>
+						    <option value="04">04</option>
+					 </select>
+				<br/>
+				Class Time:<br/>
+					<select id="Class" name="class_time" required="required">
+						   	<option >10</option>
+							<option >12</option>
+						    <option >02</option>
+						    <option >04</option>
+					 </select> 
+	 		
+		  <br/>
+	
+		</span>
+		  <br/>
+		  <div style="text-align: center; margin-top: -13px">
+                    <button class="mnueOptions" type="submit" style="width: 6em;">Save</button>
+                </div>
+ 	</form>
+
+	<div align="center">
+        <table border="1" cellpadding="10">
+            <caption><h2>List of Classes</h2></caption>
+            <tr>
+                <th>ID</th>
+                <th>Subject</th>
+                <th>RoomNo</th>
+                <th>Time</th>
+            </tr>
+                <%
+            		List<Object[]> p=(List<Object[]>)request.getAttribute("ClassesList");
+            	try{
+            	for(Object[] o : p){
+            		%>
+            		<tr>
+                    <td><%=o[0]%></td>
+                    <td><%=o[1]%></td>
+                    <td><%=o[2]%></td>
+                    <td><%=o[3]%></td>
+                    
+                    <td>
+                     
+                     &nbsp;&nbsp;&nbsp;&nbsp;
+                     <a href="deleteClass?id=<%=o[0]%>">Delete</a>                     
+                    </td>
+                </tr>
+                <%
+				}
+            		
+            	}catch (Exception e){
+            	}
+            %>
+            
+        </table>
+    </div>
+<footer>Yousif Salman Al-Dhfeery -- 2180000644 &copy;</footer>
+
+</body>
+</html>
