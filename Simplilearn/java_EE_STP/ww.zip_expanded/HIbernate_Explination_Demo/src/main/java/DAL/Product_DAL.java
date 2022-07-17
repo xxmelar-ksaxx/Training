@@ -1,0 +1,89 @@
+package DAL;
+
+
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+import org.hibernate.query.Query;
+
+import Connection.Connect;
+import Entities.Products;
+
+public class Product_DAL {
+	
+	
+	
+	public void saveUser(Products product) {
+        Transaction transaction = null;
+        
+        try (Session session = Connect.getSessionFactory("nonee").openSession()) {
+            // start a transaction
+        	
+            transaction = session.beginTransaction();
+            // save the student object
+            session.save(product);
+            // commit transaction
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        }
+    }
+	
+	
+	@SuppressWarnings("unchecked")
+    public List < Products > getAllProducts() {
+		
+        Transaction transaction = null;
+        List < Products > listOfUser = null;
+        try (Session session = Connect.getSessionFactory("create-drop").openSession()) {
+            // start a transaction
+            transaction = session.beginTransaction();
+            // get an user object
+          
+            listOfUser = session.createQuery("from Entities.Products").getResultList();
+            System.out.println("The list: "+listOfUser);
+            // commit transaction
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) {
+                //transaction.rollback();
+            	System.out.println("transaction closed!!");
+            }
+            e.printStackTrace();
+        }
+        return listOfUser;
+    }
+	
+	
+	
+	public void deleteProduct(int id) {
+
+        Transaction transaction = null;
+        try (Session session = Connect.getSessionFactory("dsadd").openSession()) {
+            // start a transaction
+            transaction = session.beginTransaction();
+
+            // Delete a user object
+            Products user = session.get(Products.class, id);
+            if (user != null) {
+                session.delete(user);
+                System.out.println("Product is deleted");
+            }
+
+            // commit transaction
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        }
+    }
+	
+
+}

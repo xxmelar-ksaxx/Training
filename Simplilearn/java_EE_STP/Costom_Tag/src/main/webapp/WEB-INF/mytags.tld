@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE taglib>
+	
+	<taglib>
+	
+		<tlib-version>1.0</tlib-version>
+		<jsp-version>1.0</jsp-version>
+		<short-name>st</short-name>.
+		
+			<tag> 
+				<name>MyDate</name>
+				<tag-class>com.tags.PrintDateTag</tag-class>
+				<body-content>empty</body-content>
+			
+			</tag>
+			
+			<tag> 
+				<name>CoustomDateTag</name>
+				<tag-class>com.tags.CoustomDate</tag-class>
+				<body-content>empty</body-content>
+				<attribute>
+					<name>format</name>
+					<required>true</required>
+					<rtexprvalue>true</rtexprvalue>
+				</attribute>
+			</tag>
+			
+			<tag>
+				<name>upper</name>
+				<tag-class>com.tags.UpperCaseTag</tag-class>
+				<body-content>scriptless</body-content>
+			</tag>
+
+	
+	</taglib>
+	
