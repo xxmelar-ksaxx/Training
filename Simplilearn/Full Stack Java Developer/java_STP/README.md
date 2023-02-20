@@ -5,5 +5,3 @@ This repository contains my Eclipse Workspace.
 
 Yousif Al-Dhfeery
 
-yousif_s@outlook.sa
-
